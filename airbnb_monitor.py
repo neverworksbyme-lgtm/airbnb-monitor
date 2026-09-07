@@ -124,6 +124,7 @@ def send_email(subject: str, body: str) -> None:
 
 async def fetch_listings(playwright) -> list:
     """Returns a list of dicts: {id, title, price, url}"""
+    os.system("playwright install chromium")
     browser = await playwright.chromium.launch(headless=True)
     context = await browser.new_context(
         user_agent=(
